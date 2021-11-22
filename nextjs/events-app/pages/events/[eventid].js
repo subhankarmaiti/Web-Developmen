@@ -1,3 +1,4 @@
+import ErrorAlert from "../../components/ui/error-alert";
 import EventContent from "../../components/event-detail/event-content";
 import EventLogistic from "../../components/event-detail/event-logistics";
 import EventSummary from "../../components/event-detail/event-summary";
@@ -9,7 +10,11 @@ function EventDetail() {
   const { eventid } = router.query;
   const event = getEventById(eventid);
   if (!event) {
-    return <p>No event found</p>;
+    return (
+      <ErrorAlert>
+        <p>No event found</p>
+      </ErrorAlert>
+    );
   }
   return (
     <>
